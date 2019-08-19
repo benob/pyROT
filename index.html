@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>pyROT</title>
+		<style>
+canvas {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+		</style>
+	</head>
+
+	<body onload="brython({debug: 1, indexedDB: false})">
+
+		<script type="text/python">
+			import game
+		</script>
+		<script>
+			// glue code to be able to call python code from js
+			function wrap_actor(obj) {
+				return {
+					act: function() {
+						obj.__class__.act(obj);
+					}
+				};
+			}
+function wrap_event_handler(obj) {
+	return {
+		handleEvent: function(e) {
+			obj.__class__.handleEvent(obj, __BRYTHON__.jsobj2pyobj(e));
+		}
+	};
+}
+		</script>
+		<script src="rot.js"></script>
+		<script src="brython.js"></script>
+		<!-- Add python stdlib if you need it
+		<script src="brython_stdlib.js"></script> 
+		-->
+
+		view <a href="game.py">source code</a><br>
+
+	</body>
+</html>
