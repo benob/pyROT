@@ -7,4 +7,4 @@ The interaction between python and javascript is rather fragile. While it is rel
 
 The rot API is unchanged and some constructs might not be very pythonic.
 
-[[https://github.com/benob/pyROT/blob/master/screenshot.png|alt=screenshot]]
+![](https://github.com/benob/pyROT/blob/master/screenshot.png)
